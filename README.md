@@ -55,3 +55,52 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+
+
+
+
+## ngrok
+
+https://dashboard.ngrok.com/get-started/setup/macos
+
+- register
+- download ngrok to /Applications
+- open Terminal
+
+```sh
+# go to ngrok folder
+cd /Applications
+# connect http to local strapi port
+./ngrok http 1337
+```
+
+
+## Google Auth
+
+https://strapi.io/blog/user-authentication-in-next-js-with-strapi
+
+Credentials / OAuth 2.0 Client IDs 
+
+Strapi Auth
+
+Authorized JavaScript origins:
+https://340b-2a01-599-911-565b-a4c9-e843-19be-a549.ngrok-free.app
+
+Authorized redirect URIs:
+https://340b-2a01-599-911-565b-a4c9-e843-19be-a549.ngrok-free.app/api/auth/callback/google
+https://340b-2a01-599-911-565b-a4c9-e843-19be-a549.ngrok-free.app/api/connect/google/callback
+
+Creds:
+551670901458-q7q1j4c7f1rs187o7hi8gcsei64be523.apps.googleusercontent.com
+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
+
+
+api/auth/google/callback/
+api/connect/google/callback/
+
+
+/api/connect/google
+https://340b-2a01-599-911-565b-a4c9-e843-19be-a549.ngrok-free.app/api/connect/google/
+
+
