@@ -9,7 +9,9 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "patch-package": "^8.0.0"
+  },
   "dependencies": {
     "@strapi/plugin-cloud": "4.20.5",
     "@strapi/plugin-i18n": "4.20.5",

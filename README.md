@@ -88,6 +88,57 @@ http://localhost:1337/api/connect/google/
 
 
 
+## Custom Zaikio Provider
+
+https://strapi.io/blog/how-to-add-a-custom-o-auth2-open-id-connect-provider-to-strapi-v4
+
+node_modules/grant/config/oauth.json
+
+"zaikio": {
+  "authorize_url": "https://hub.sandbox.zaikio.com/oauth/authorize",
+  "access_url": "https://hub.sandbox.zaikio.com/oauth/access_token",
+  "oauth": 2
+}
+
+node_modules/grant/config/profile.json
+
+"zaikio": {
+  "profile_url": "https://hub.sandbox.zaikio.com/oauth/userinfo"
+}
+
+
+node_modules/purest/config/providers.json
+
+"zaikio": {
+  "default": {
+    "origin": "https://hub.sandbox.zaikio.com",
+    "path": "api/{path}",
+    "headers": {
+      "authorization": "Bearer {auth}"
+    }
+  },
+  "oauth": {
+    "origin": "https://hub.sandbox.zaikio.com",
+    "path": "oauth/{path}"
+  }
+}
+
+node_modules/@strapi/plugin-users-permissions/server/bootstrap/grant-config.js
+
+zaikio: {
+  enabled: true,
+  icon: 'zaikio',
+  key: '',
+  secret: '',
+  callback: `${baseURL}/auth0/callback`,
+  scope:["zaikio.person.r"]
+}
+
+
+http://localhost:1337/api/connect/zaikio/
+
+
+
 
 ## ngrok
 

@@ -7,5 +7,6 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  url: "http://localhost:1337"
   // url: "https://340b-2a01-599-911-565b-a4c9-e843-19be-a549.ngrok-free.app"
 });
