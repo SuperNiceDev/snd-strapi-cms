@@ -63,78 +63,65 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 
 https://strapi.io/blog/user-authentication-in-next-js-with-strapi
 
-Credentials / OAuth 2.0 Client IDs 
 
-Strapi Auth
+### Google Config
+
+https://console.cloud.google.com/apis/credentials?project=strapi-auth-demo-417609
+
+Credentials / OAuth 2.0 Client IDs -> Strapi OAuth Client
 
 Authorized JavaScript origins:
 http://localhost:1337
 
 Authorized redirect URIs:
-http://localhost:1337/api/auth/callback/google
+http://localhost:1337/api/auth/google/callback
 http://localhost:1337/api/connect/google/callback
 
-Creds:
+
+### Strapi Config
+
+http://localhost:1337/admin/settings/users-permissions/providers
+
+Client ID:
 551670901458-q7q1j4c7f1rs187o7hi8gcsei64be523.apps.googleusercontent.com
+
+Client Secret:
 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
 
+The redirect URL to your front-end app:
+http://localhost:1337/api/auth/google/callback
 
-api/auth/google/callback/
-api/connect/google/callback/
-
-
-/api/connect/google
-http://localhost:1337/api/connect/google/
+The redirect URL to add in your google application configurations:
+http://localhost:1337/api/connect/google/callback
 
 
+### Test
+http://localhost:1337/api/connect/google
 
-## Custom Zaikio Provider
+
+## Custom Zaikio Users & Permissions Provider
 
 https://strapi.io/blog/how-to-add-a-custom-o-auth2-open-id-connect-provider-to-strapi-v4
 
 node_modules/grant/config/oauth.json
-
-"zaikio": {
-  "authorize_url": "https://hub.sandbox.zaikio.com/oauth/authorize",
-  "access_url": "https://hub.sandbox.zaikio.com/oauth/access_token",
-  "oauth": 2
-}
+XXX
 
 node_modules/grant/config/profile.json
-
-"zaikio": {
-  "profile_url": "https://hub.sandbox.zaikio.com/oauth/userinfo"
-}
-
+XXX
 
 node_modules/purest/config/providers.json
-
-"zaikio": {
-  "default": {
-    "origin": "https://hub.sandbox.zaikio.com",
-    "path": "api/{path}",
-    "headers": {
-      "authorization": "Bearer {auth}"
-    }
-  },
-  "oauth": {
-    "origin": "https://hub.sandbox.zaikio.com",
-    "path": "oauth/{path}"
-  }
-}
+XXX
 
 node_modules/@strapi/plugin-users-permissions/server/bootstrap/grant-config.js
+XXX
 
-zaikio: {
-  enabled: true,
-  icon: 'zaikio',
-  key: '',
-  secret: '',
-  callback: `${baseURL}/auth0/callback`,
-  scope:["zaikio.person.r"]
-}
+node_modules/@strapi/plugin-users-permissions/server/services/providers-registry.js
+XXX
+
+yarn patch-package grant purest @strapi/plugin-users-permissions
 
 
+### Test
 http://localhost:1337/api/connect/zaikio/
 
 
