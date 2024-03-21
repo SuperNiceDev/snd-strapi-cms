@@ -18,22 +18,16 @@
     "title": {
       "type": "string"
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": false,
+      "component": "images.images"
     }
   }
 }

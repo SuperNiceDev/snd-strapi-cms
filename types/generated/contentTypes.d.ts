@@ -413,12 +413,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
   attributes: {
     uId: Attribute.UID;
     title: Attribute.String;
-    image: Attribute.Media;
     category: Attribute.Relation<
       'api::product.product',
       'manyToOne',
       'api::category.category'
     >;
+    images: Attribute.Component<'images.images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
