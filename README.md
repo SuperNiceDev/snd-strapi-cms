@@ -7,12 +7,12 @@ http://localhost:1337/api/categories?populate[products][populate][0]=image
 
 ---
 
-## Google Users & Permissions Provider
+## Google OAuth
 
 https://strapi.io/blog/user-authentication-in-next-js-with-strapi
 
 
-### Google Config
+### Google Cloud Console Config
 
 https://console.cloud.google.com/apis/credentials?project=strapi-auth-demo-417609
 
@@ -22,11 +22,12 @@ Authorized JavaScript origins:
 http://localhost:1337
 
 Authorized redirect URIs:
-http://localhost:1337/api/auth/google/callback
 http://localhost:1337/api/connect/google/callback
+http://localhost:1337/api/auth/google/callback
+http://localhost:3000/api/auth/callback/google
 
 
-### Strapi Config
+### Strapi Users and Permissions Plugin Provider Google Config
 
 http://localhost:1337/admin/settings/users-permissions/providers
 
@@ -34,10 +35,11 @@ Client ID:
 551670901458-q7q1j4c7f1rs187o7hi8gcsei64be523.apps.googleusercontent.com
 
 Client Secret:
-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
+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
 
 The redirect URL to your front-end app:
 http://localhost:1337/api/auth/google/callback
+http://localhost:3000/api/auth/callback/google
 
 The redirect URL to add in your google application configurations:
 http://localhost:1337/api/connect/google/callback
@@ -50,7 +52,7 @@ http://localhost:1337/api/connect/google
 ---
 
 
-## Zaikio Custom Users & Permissions Provider
+## Zaikio OAuth
 
 
 ### Heidelberg Plus
@@ -67,17 +69,38 @@ https://docs.zaikio.com/guide/oauth/redirect-flow.html
 https://docs.zaikio.com/integration/private-apps.html
 
 
-### Zaikio Config
+### Zaikio Hub Config
 
 https://hub.sandbox.zaikio.com/organizations/fp-interactive/apps/excite/oauth_credentials
 
+Redirect URLs:
+http://localhost:1337/api/connect/zaikio/callback
+http://localhost:3000/api/auth/callback/zaikio
 
-### Strapi Config
+
+### Strapi Users and Permissions Plugin Provider Zaikio Config
 
 https://strapi.io/blog/how-to-add-a-custom-o-auth2-open-id-connect-provider-to-strapi-v4
 
+Client ID:
+b4b45947-16c8-40bc-8106-35ff237496d1
 
-#### patch node modules
+Client Secret:
+QD3dg5TaX2mxfhn7uMFdXC7N
+
+The redirect URL to your front-end app:
+http://localhost:1337/api/auth/zaikio/callback
+http://localhost:3000/api/auth/callback/zaikio
+
+The redirect URL to add in your google application configurations:
+http://localhost:1337/api/connect/zaikio/callback
+
+
+### Test
+http://localhost:1337/api/connect/zaikio/
+
+
+### patch node modules
 
 node_modules/grant/config/oauth.json
 ```
@@ -141,28 +164,6 @@ patch changed node modules
 ```
 yarn patch-package grant purest @strapi/plugin-users-permissions
 ```
-
-#### config provider in CMS
-
-http://localhost:1337/admin/settings/users-permissions/providers
-
-Client ID:
-2fd2b6db-571c-43bf-8b95-179075c6b484
-
-Client Secret:
-9TgCWmR7tygcpyAtsBynfpDq
-
-The redirect URL to your front-end app:
-http://localhost:1337/api/auth/zaikio/callback
-
-The redirect URL to add in your zaikio application configurations:
-http://localhost:1337/api/connect/zaikio/callback
-
-
-### Test
-http://localhost:1337/api/connect/zaikio/
-
-
 
 
 ## ngrok
