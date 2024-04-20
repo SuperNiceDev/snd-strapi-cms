@@ -1,8 +1,26 @@
 # 🚀 Getting started
 
-## REST API 
+## SETUP
 
-populate
+```
+yarn
+```
+
+```
+yarn patch-package
+```
+
+```
+yarn dev
+```
+
+p.neumann@supernice-dev.com
+123456Aa
+
+
+## STRAPI REST API 
+
+populate:
 http://localhost:1337/api/categories?populate[products][populate][0]=image
 
 ---
@@ -96,11 +114,19 @@ The redirect URL to add in your google application configurations:
 http://localhost:1337/api/connect/zaikio/callback
 
 
-### Test
-http://localhost:1337/api/connect/zaikio/
+
+### patch-package:
+
+When ```patches``` folder already excisits:
+```
+yarn patch-package
+```
 
 
 ### patch node modules
+
+When ```patches``` folder NOT already excisits,
+make these changes:
 
 node_modules/grant/config/oauth.json
 ```
@@ -165,6 +191,10 @@ patch changed node modules
 yarn patch-package grant purest @strapi/plugin-users-permissions
 ```
 
+### Test
+http://localhost:1337/api/connect/zaikio/
+
+---
 
 ## ngrok
 

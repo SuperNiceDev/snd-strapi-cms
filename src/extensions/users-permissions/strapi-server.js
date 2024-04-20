@@ -5,7 +5,7 @@ module.exports = (plugin) => {
       console.log("---------------------");
       console.log("---------------------");
       console.log("---------------------");
-      console.log('strapi-server.js beforeFindMany() event', event, ctx);
+      console.log('src/extensions/users-permissions/strapi-server.js beforeFindMany() event', event, ctx);
     },
   };
 

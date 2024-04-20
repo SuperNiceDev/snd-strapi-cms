@@ -24,7 +24,7 @@ module.exports = {
           console.log("---------------------",);
           console.log("---------------------",);
           console.log("---------------------",);
-          console.log("index.js bootstrap() beforeFindMany event: ", event);
+          console.log("src/index.js bootstrap() beforeFindMany event: ", event);
         },
       });
   

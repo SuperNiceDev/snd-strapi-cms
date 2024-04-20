@@ -1,14 +1,10 @@
 module.exports = {
   lifecycles:{
     async beforeFindMany(event) {
-      console.log('XXXXXXXXX');
-      console.log('XXXXXXXXX');
-      console.log('XXXXXXXXX');
-      console.log('XXXXXXXXX');
-      console.log('XXXXXXXXX');
-      console.log('XXXXXXXXX');
-      console.log('XXXXXXXXX');
-      console.log('beforeFindMany event: ', event);
+      console.log("---------------------",);
+      console.log("---------------------",);
+      console.log("---------------------",);
+      console.log('src/extensions/users-permissions/content-types/user/User.js lifecycles() beforeFindMany() event: ', event);
     },
   }
 }; 
