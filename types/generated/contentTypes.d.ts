@@ -665,6 +665,56 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginRedirectsRedirect extends Schema.CollectionType {
+  collectionName: 'redirects';
+  info: {
+    singularName: 'redirect';
+    pluralName: 'redirects';
+    displayName: 'redirect';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    from: Attribute.String & Attribute.Required;
+    to: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<
+      [
+        'found_302',
+        'moved_permanently_301',
+        'temporary_redirect_307',
+        'gone_410',
+        'unavailable_for_legal_reasons_451'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'found_302'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::redirects.redirect',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::redirects.redirect',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -879,6 +929,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::redirects.redirect': PluginRedirectsRedirect;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
