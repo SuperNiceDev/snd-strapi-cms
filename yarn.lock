@@ -8905,6 +8905,11 @@ statuses@2.0.1, statuses@^2.0.1:
   resolved "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
+strapi-plugin-image-optimizer@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/strapi-plugin-image-optimizer/-/strapi-plugin-image-optimizer-2.2.1.tgz#f6e7a7d6081b78b35c3ed8884c7317bd04e96cd4"
+  integrity sha512-zflvTam9I0NRrdq3Yn/1fRXfZL+1gkrUf/r37Tnixjpw6LZiLxbOS6Xok23Gb42Q4LdmNjfwkmGnMRurYUg0ow==
+
 strapi-plugin-redirects@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/strapi-plugin-redirects/-/strapi-plugin-redirects-1.0.4.tgz#2bcec28c277b338a1dd72549c17d5c729d5cf0ec"
