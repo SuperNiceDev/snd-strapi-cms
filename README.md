@@ -18,14 +18,64 @@ p.neumann@supernice-dev.com
 123456Aa
 
 
-## STRAPI REST API 
+## REST API 
 
+populate:
 https://docs.strapi.io/dev-docs/api/rest/populate-select#population
 https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
 
 http://localhost:1337/api/products/1?populate=*
 http://localhost:1337/api/products/1?populate[0]=images&populate[1]=images.front
 http://localhost:1337/api/categories?populate[products][populate][0]=image
+
+is-owner policy:
+https://docs.strapi.io/dev-docs/backend-customization/middlewares#restricting-content-access-with-an-is-owner-policy
+
+Filtering:
+https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/filtering-locale-publication.html#filtering
+
+---
+
+## Authenticated Requests
+
+https://strapi.io/video-library/making-authenticated-requests
+
+
+##### Get bearer token:
+
+```js
+import axios from "axios";
+
+const res = await axios({
+  method: "POST",
+  url: "http://localhost:1337/api/auth/local",
+  headers: { "content-type": "application/json" },
+  data: {
+    identifier: "p.neumann@supernice-dev.com",
+    password: "123456Aa",
+  },
+});
+
+// console.log("/api/auth/local res: ", res);
+console.log("/api/auth/local data: ", res.data);
+```
+
+##### Use bearer token:
+
+```js
+import axios from "axios";
+
+const res2 = await axios({
+  method: "GET",
+  url: "http://localhost:1337/api/users/me",
+  headers: {
+    Authorization: `Bearer ${res.data?.jwt}`,
+  },
+});
+
+// console.log("/api/users/me res2: ", res2);
+console.log("/api/users/me data: ", res2.data);
+```
 
 ---
 
@@ -114,9 +164,9 @@ The redirect URL to your front-end app:
 http://localhost:1337/api/auth/zaikio/callback
 http://localhost:3000/api/auth/callback/zaikio
 
-The redirect URL to add in your google application configurations:
-http://localhost:1337/api/connect/zaikio/callback
 
+### Test
+http://localhost:1337/api/connect/zaikio/
 
 
 ### patch-package:
