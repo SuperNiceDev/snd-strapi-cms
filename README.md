@@ -20,7 +20,11 @@ p.neumann@supernice-dev.com
 
 ## STRAPI REST API 
 
-populate:
+https://docs.strapi.io/dev-docs/api/rest/populate-select#population
+https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
+
+http://localhost:1337/api/products/1?populate=*
+http://localhost:1337/api/products/1?populate[0]=images&populate[1]=images.front
 http://localhost:1337/api/categories?populate[products][populate][0]=image
 
 ---
