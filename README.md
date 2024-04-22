@@ -90,13 +90,9 @@ https://console.cloud.google.com/apis/credentials?project=strapi-auth-demo-41760
 
 Credentials / OAuth 2.0 Client IDs -> Strapi OAuth Client
 
-Authorized JavaScript origins:
-http://localhost:1337
-
 Authorized redirect URIs:
-http://localhost:1337/api/connect/google/callback
-http://localhost:1337/api/auth/google/callback
-http://localhost:3000/api/auth/callback/google
+http://localhost:1337/api/connect/google/callback  (for Strapi)
+http://localhost:3000/api/auth/callback/google     (for NextAuth)
 
 
 ### Strapi Users and Permissions Plugin Provider Google Config
@@ -110,11 +106,8 @@ Client Secret:
 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
 
 The redirect URL to your front-end app:
-http://localhost:1337/api/auth/google/callback
-http://localhost:3000/api/auth/callback/google
-
-The redirect URL to add in your google application configurations:
-http://localhost:1337/api/connect/google/callback
+http://localhost:1337/api/auth/google/callback  (for Strapi)
+http://localhost:3000/api/auth/callback/google  (for NextAuth)
 
 
 ### Test
@@ -127,7 +120,7 @@ http://localhost:1337/api/connect/google
 ## Zaikio OAuth
 
 
-### Heidelberg Plus
+### Heidelberg Plus User Account
 
 https://home.plus.heidelberg.com/#/profile/overview
 
@@ -146,8 +139,8 @@ https://docs.zaikio.com/integration/private-apps.html
 https://hub.sandbox.zaikio.com/organizations/fp-interactive/apps/excite/oauth_credentials
 
 Redirect URLs:
-http://localhost:1337/api/connect/zaikio/callback
-http://localhost:3000/api/auth/callback/zaikio
+http://localhost:1337/api/connect/zaikio/callback  (for Strapi)
+http://localhost:3000/api/auth/callback/zaikio     (for NextAuth)
 
 
 ### Strapi Users and Permissions Plugin Provider Zaikio Config
@@ -161,8 +154,8 @@ Client Secret:
 QD3dg5TaX2mxfhn7uMFdXC7N
 
 The redirect URL to your front-end app:
-http://localhost:1337/api/auth/zaikio/callback
-http://localhost:3000/api/auth/callback/zaikio
+http://localhost:1337/api/auth/zaikio/callback  (for Strapi)
+http://localhost:3000/api/auth/callback/zaikio  (for NextAuth)
 
 
 ### Test
