@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_global_footers",
+  "info": {
+    "displayName": "footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "footerText": {
+      "type": "string"
+    }
+  }
+}

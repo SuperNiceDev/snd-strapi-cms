@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_rows",
+  "info": {
+    "displayName": "Row",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "rowId": {
+      "type": "string"
+    },
+    "element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.element"
+    }
+  }
+}

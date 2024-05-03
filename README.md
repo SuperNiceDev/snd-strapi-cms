@@ -34,6 +34,33 @@ https://docs.strapi.io/dev-docs/backend-customization/middlewares#restricting-co
 Filtering:
 https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/filtering-locale-publication.html#filtering
 
+
+## Website REST API config 
+
+https://strapi.io/blog/how-to-create-pages-on-the-fly-with-dynamic-zone
+
+Foodadvisor content-types examples:
+https://github.com/strapi/foodadvisor/blob/master/api/src/api/page/content-types/page/schema.json
+
+Interactive query builder:
+https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
+
+```js
+{
+  fields: "*",
+  populate: {
+    seo: "*",
+    sections: {
+      fields: "*",
+      populate: {
+        rows: "*",
+      },
+    },
+  },
+}
+```
+http://localhost:1337/api/pages?fields=*&populate[seo]=*&populate[sections][fields]=*&populate[sections][populate][rows]=*
+
 ---
 
 ## Authenticated Requests

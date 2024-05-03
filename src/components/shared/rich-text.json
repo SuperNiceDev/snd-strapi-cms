@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_rich_texts",
+  "info": {
+    "displayName": "RichText",
+    "icon": "pencil"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks"
+    }
+  }
+}

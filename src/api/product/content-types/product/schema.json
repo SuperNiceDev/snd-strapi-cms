@@ -27,7 +27,7 @@
     "images": {
       "type": "component",
       "repeatable": false,
-      "component": "images.images"
+      "component": "shared.images"
     }
   }
 }

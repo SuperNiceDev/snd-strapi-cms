@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_global_navigations",
+  "info": {
+    "displayName": "Navigation"
+  },
+  "options": {},
+  "attributes": {
+    "navText": {
+      "type": "string"
+    }
+  }
+}
