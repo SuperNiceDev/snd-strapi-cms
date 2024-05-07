@@ -1,3 +1,5 @@
+import cronTasks from "./cron-task";
+
 module.exports = ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
@@ -9,4 +11,8 @@ module.exports = ({ env }) => ({
   },
   // url: "http://localhost:1337"
   // url: "https://340b-2a01-599-911-565b-a4c9-e843-19be-a549.ngrok-free.app"
+  cron: {
+    enabled: true,
+    tasks: cronTasks,
+  }
 });
