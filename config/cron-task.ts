@@ -1,25 +1,27 @@
 export default {
-  // deleteInactiveUser: {
-  //   task: async ({ strapi }) => {
-  //     // console.log("cron-task strapi: ", strapi);
+  deleteInactiveUser: {
+    task: async ({ strapi }) => {
+      // console.log("cron-task strapi: ", strapi);
+      const currTime = new Date().getTime();
+      console.log("cron-task currTime: ", currTime);
 
-  //     const users = await strapi.entityService.findMany("plugin::users-permissions.user",
-  //       // {
-  //       //   populate: [
-  //       //     "role"
-  //       //   ],
-  //       // }
-  //     );
-  //     console.log("cron-task users: ", users);
-
-  //     const user = await strapi.entityService.findOne("plugin::users-permissions.user",
-  //       45
-  //     );
-  //     console.log("cron-task user: ", user);
-  //   },
-  //   options: {
-  //     // https://docs.strapi.io/dev-docs/configurations/cron#enabling-cron-jobs
-  //     rule: "1 * * * * *",
-  //   },
-  // },
+      const users = await strapi.entityService.findMany("plugin::users-permissions.user",
+        // {
+        //   populate: [
+        //     "role"
+        //   ],
+        // }
+      );
+      console.log("cron-task users: ", users);
+      
+      const timeDeltas = users?.map((item) => {
+        return currTime - parseInt(item.lastLogin);
+      })
+      console.log("cron-task timeDeltas: ", timeDeltas);
+    },
+    options: {
+      // https://docs.strapi.io/dev-docs/configurations/cron#enabling-cron-jobs
+      rule: "1 * * * * *",
+    },
+  },
 };
