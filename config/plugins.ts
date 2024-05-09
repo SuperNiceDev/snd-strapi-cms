@@ -1,6 +1,6 @@
 import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
 
-module.exports = ({ env }) => {
+export default ({ env }) => {
   // console.log("plugins.js env: ", env);
   
   const plugins = {
