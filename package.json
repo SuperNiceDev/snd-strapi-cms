@@ -1,8 +1,8 @@
 {
-  "name": "stapi-test",
+  "name": "snd-strapi-cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Strapi CMS boilerplate",
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
@@ -27,7 +27,7 @@
     "styled-components": "5.3.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Philipp Neumann"
   },
   "strapi": {
     "uuid": "ba44c157-4d61-442b-9237-940d6240a07e"
