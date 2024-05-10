@@ -1,10 +1,10 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Schema, Attribute } from "@strapi/strapi";
 
 export interface BlocksElement extends Schema.Component {
-  collectionName: 'components_blocks_elements';
+  collectionName: "components_blocks_elements";
   info: {
-    displayName: 'Element';
-    description: '';
+    displayName: "Element";
+    description: "";
   };
   attributes: {
     elementId: Attribute.String;
@@ -12,22 +12,22 @@ export interface BlocksElement extends Schema.Component {
 }
 
 export interface BlocksRow extends Schema.Component {
-  collectionName: 'components_blocks_rows';
+  collectionName: "components_blocks_rows";
   info: {
-    displayName: 'Row';
-    description: '';
+    displayName: "Row";
+    description: "";
   };
   attributes: {
     rowId: Attribute.String;
-    element: Attribute.Component<'blocks.element', true>;
+    element: Attribute.Component<"blocks.element", true>;
   };
 }
 
 export interface GlobalFooter extends Schema.Component {
-  collectionName: 'components_global_footers';
+  collectionName: "components_global_footers";
   info: {
-    displayName: 'footer';
-    description: '';
+    displayName: "footer";
+    description: "";
   };
   attributes: {
     footerText: Attribute.String;
@@ -35,9 +35,9 @@ export interface GlobalFooter extends Schema.Component {
 }
 
 export interface GlobalNavigation extends Schema.Component {
-  collectionName: 'components_global_navigations';
+  collectionName: "components_global_navigations";
   info: {
-    displayName: 'Navigation';
+    displayName: "Navigation";
   };
   attributes: {
     navText: Attribute.String;
@@ -45,11 +45,11 @@ export interface GlobalNavigation extends Schema.Component {
 }
 
 export interface SharedImages extends Schema.Component {
-  collectionName: 'components_shared_images';
+  collectionName: "components_shared_images";
   info: {
-    displayName: 'Images';
-    icon: 'dashboard';
-    description: '';
+    displayName: "Images";
+    icon: "dashboard";
+    description: "";
   };
   attributes: {
     front: Attribute.Media;
@@ -60,27 +60,27 @@ export interface SharedImages extends Schema.Component {
 }
 
 export interface SharedLinks extends Schema.Component {
-  collectionName: 'components_shared_links';
+  collectionName: "components_shared_links";
   info: {
-    displayName: 'link';
-    icon: 'backward';
+    displayName: "link";
+    icon: "backward";
   };
   attributes: {
     href: Attribute.String & Attribute.Required;
     label: Attribute.String & Attribute.Required;
-    target: Attribute.Enumeration<['_blank']>;
+    target: Attribute.Enumeration<["_blank"]>;
     isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
 export interface SharedMetaSocial extends Schema.Component {
-  collectionName: 'components_shared_meta_socials';
+  collectionName: "components_shared_meta_socials";
   info: {
-    displayName: 'metaSocial';
-    icon: 'project-diagram';
+    displayName: "metaSocial";
+    icon: "project-diagram";
   };
   attributes: {
-    socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
+    socialNetwork: Attribute.Enumeration<["Facebook", "Twitter"]> &
       Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -97,10 +97,10 @@ export interface SharedMetaSocial extends Schema.Component {
 }
 
 export interface SharedRichText extends Schema.Component {
-  collectionName: 'components_shared_rich_texts';
+  collectionName: "components_shared_rich_texts";
   info: {
-    displayName: 'RichText';
-    icon: 'pencil';
+    displayName: "RichText";
+    icon: "pencil";
   };
   attributes: {
     text: Attribute.Blocks;
@@ -108,10 +108,10 @@ export interface SharedRichText extends Schema.Component {
 }
 
 export interface SharedSeo extends Schema.Component {
-  collectionName: 'components_shared_seos';
+  collectionName: "components_shared_seos";
   info: {
-    displayName: 'seo';
-    icon: 'search';
+    displayName: "seo";
+    icon: "search";
   };
   attributes: {
     metaTitle: Attribute.String &
@@ -126,7 +126,7 @@ export interface SharedSeo extends Schema.Component {
         maxLength: 160;
       }>;
     metaImage: Attribute.Media & Attribute.Required;
-    metaSocial: Attribute.Component<'shared.meta-social', true>;
+    metaSocial: Attribute.Component<"shared.meta-social", true>;
     keywords: Attribute.Text;
     metaRobots: Attribute.String;
     structuredData: Attribute.JSON;
@@ -135,18 +135,18 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
-declare module '@strapi/types' {
+declare module "@strapi/types" {
   export module Shared {
     export interface Components {
-      'blocks.element': BlocksElement;
-      'blocks.row': BlocksRow;
-      'global.footer': GlobalFooter;
-      'global.navigation': GlobalNavigation;
-      'shared.images': SharedImages;
-      'shared.links': SharedLinks;
-      'shared.meta-social': SharedMetaSocial;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
+      "blocks.element": BlocksElement;
+      "blocks.row": BlocksRow;
+      "global.footer": GlobalFooter;
+      "global.navigation": GlobalNavigation;
+      "shared.images": SharedImages;
+      "shared.links": SharedLinks;
+      "shared.meta-social": SharedMetaSocial;
+      "shared.rich-text": SharedRichText;
+      "shared.seo": SharedSeo;
     }
   }
 }
