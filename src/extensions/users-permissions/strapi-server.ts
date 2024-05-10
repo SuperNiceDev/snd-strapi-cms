@@ -2,7 +2,6 @@ export default (plugin) => {
   // console.clear();
   // console.log("src/extensions/users-permissions/strapi-server.js");
   // console.log("plugin: ", plugin);
-  
 
   // plugin.contentTypes.user.lifecycles = {
   //   async beforeFindMany(event) {
@@ -16,48 +15,45 @@ export default (plugin) => {
   //   },
   // };
 
-
   //:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
   // https://www.youtube.com/watch?v=2ZwiiY6tnmw
 
   plugin.controllers.user.updateMe = async (ctx) => {
     if (!ctx.state.user || !ctx.state.user.id) {
-      return ctx.response.status = 401;
+      return (ctx.response.status = 401);
     }
 
     const updatedUserData = {
-      ...ctx.request.body,  
+      ...ctx.request.body,
       // username: ctx.state.user.username || ctx.request.body.username,
       // email: ctx.state.user.email || ctx.request.body.email,
       lastLogin: ctx.request.body.lastLogin,
       authProvider: ctx.state.user.provider,
     };
 
-    console.error('ctx.state.user:', ctx.state.user);
-    console.error('ctx.request.body:', ctx.request.body);
+    // console.error("ctx.state.user:", ctx.state.user);
 
     try {
-      await strapi.query('plugin::users-permissions.user').update({
+      await strapi.query("plugin::users-permissions.user").update({
         where: { id: ctx.state.user.id },
-        data: updatedUserData, 
+        data: updatedUserData,
       });
       ctx.response.status = 200;
     } catch (error) {
-      console.error('Error updating user data:', error);
+      console.error("Error updating user data:", error);
       ctx.response.status = 500;
     }
   };
 
-  plugin.routes['content-api'].routes.push({
+  plugin.routes["content-api"].routes.push({
     method: "PUT",
     path: "/user/me",
     handler: "user.updateMe",
     config: {
       prefix: "",
-      policies: []
-    }
+      policies: [],
+    },
   });
 
   return plugin;

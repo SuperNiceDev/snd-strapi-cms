@@ -2,7 +2,7 @@ import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/di
 
 export default ({ env }) => {
   // console.log("plugins.js env: ", env);
-  
+
   const plugins = {
     // https://market.strapi.io/plugins/strapi-plugin-redirects
     redirects: {
@@ -49,8 +49,8 @@ export default ({ env }) => {
         quality: 90,
       } satisfies ImageOptimizerConfig,
     },
-  }
+  };
 
   // console.log("plugins.js plugins: ", plugins);
-  return plugins
+  return plugins;
 };
