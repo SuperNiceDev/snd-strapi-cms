@@ -32,7 +32,10 @@ export default (plugin) => {
       authProvider: ctx.state.user.provider,
     };
 
-    // console.error("ctx.state.user:", ctx.state.user);
+    console.log("---------------------");
+    console.log("---------------------");
+    console.log("---------------------");
+    console.log("ctx.state.user: ", ctx.state.user);
 
     try {
       await strapi.query("plugin::users-permissions.user").update({
@@ -41,7 +44,7 @@ export default (plugin) => {
       });
       ctx.response.status = 200;
     } catch (error) {
-      console.error("Error updating user data:", error);
+      console.error("Error updating user data: ", error);
       ctx.response.status = 500;
     }
   };
