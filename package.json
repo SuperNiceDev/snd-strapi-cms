@@ -1,15 +1,17 @@
 {
   "name": "snd-strapi-cms",
-  "private": true,
+  "description": "A Strapi CMS boilerplate",
   "version": "0.1.0",
-  "description": "Strapi CMS boilerplate",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "strapi develop",
-    "start": "strapi start",
     "build": "strapi build",
+    "start": "strapi start",
     "strapi": "strapi",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "lint-fix": "eslint . --fix",
+    "removeNodeModules": "rm -rf ./node_modules"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.8.0",
@@ -30,6 +32,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
+    "sharp": "^0.33.3",
     "strapi-plugin-image-optimizer": "^2.2.1",
     "strapi-plugin-redirects": "^1.0.4",
     "styled-components": "5.3.3"
@@ -43,6 +46,5 @@
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+  }
 }
