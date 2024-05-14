@@ -9,7 +9,11 @@ export default (plugin) => {
   //     console.log("---------------------");
   //     console.log("---------------------");
   //     // console.log("src/extensions/users-permissions/strapi-server.js beforeFindMany(");
-  //     console.log("src/extensions/users-permissions/strapi-server.js beforeFindMany() event", event, ctx);
+  //     console.log(
+  //       "src/extensions/users-permissions/strapi-server.js beforeFindMany() event",
+  //       event,
+  //       ctx,
+  //     );
   //     console.log("---------------------");
   //     console.log("---------------------");
   //   },
