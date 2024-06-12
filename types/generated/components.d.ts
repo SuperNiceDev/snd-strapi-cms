@@ -52,10 +52,10 @@ export interface SharedImages extends Schema.Component {
     description: "";
   };
   attributes: {
-    front: Attribute.Media;
-    back: Attribute.Media;
-    thumbnail: Attribute.Media;
-    printView: Attribute.Media;
+    front: Attribute.Media<"images">;
+    back: Attribute.Media<"images">;
+    thumbnail: Attribute.Media<"images">;
+    printView: Attribute.Media<"images">;
   };
 }
 
@@ -92,7 +92,7 @@ export interface SharedMetaSocial extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 65;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<"images" | "files" | "videos">;
   };
 }
 
@@ -125,7 +125,8 @@ export interface SharedSeo extends Schema.Component {
         minLength: 50;
         maxLength: 160;
       }>;
-    metaImage: Attribute.Media & Attribute.Required;
+    metaImage: Attribute.Media<"images" | "files" | "videos"> &
+      Attribute.Required;
     metaSocial: Attribute.Component<"shared.meta-social", true>;
     keywords: Attribute.Text;
     metaRobots: Attribute.String;
