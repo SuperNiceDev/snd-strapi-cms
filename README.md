@@ -71,6 +71,7 @@ Populate Singeltypes Global components:
   populate: [
     'navigation',
     'navigation.items',
+    'navigation.items.page',
     'footer',
   ],
 }
