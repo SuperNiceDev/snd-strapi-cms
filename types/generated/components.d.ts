@@ -66,12 +66,14 @@ export interface SharedLinks extends Schema.Component {
   info: {
     displayName: "link";
     icon: "backward";
+    description: "";
   };
   attributes: {
-    href: Attribute.String & Attribute.Required;
+    href: Attribute.String;
     label: Attribute.String & Attribute.Required;
     target: Attribute.Enumeration<["_blank"]>;
     isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
+    page: Attribute.Relation<"shared.links", "oneToOne", "api::page.page">;
   };
 }
 
