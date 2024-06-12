@@ -20,14 +20,6 @@ p.neumann@supernice-dev.com
 
 ## REST API 
 
-populate:
-https://docs.strapi.io/dev-docs/api/rest/populate-select#population
-https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
-
-http://localhost:1337/api/products/1?populate=*
-http://localhost:1337/api/products/1?populate[0]=images&populate[1]=images.front
-http://localhost:1337/api/categories?populate[products][populate][0]=image
-
 is-owner policy:
 https://docs.strapi.io/dev-docs/backend-customization/middlewares#restricting-content-access-with-an-is-owner-policy
 
@@ -42,8 +34,18 @@ https://strapi.io/blog/how-to-create-pages-on-the-fly-with-dynamic-zone
 Foodadvisor content-types examples:
 https://github.com/strapi/foodadvisor/blob/master/api/src/api/page/content-types/page/schema.json
 
+
+### Populate REST API
+https://docs.strapi.io/dev-docs/api/rest/populate-select#population
+
+http://localhost:1337/api/products/1?populate=*
+http://localhost:1337/api/products/1?populate[0]=images&populate[1]=images.front
+http://localhost:1337/api/categories?populate[products][populate][0]=image
+
 Interactive query builder:
 https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
+
+Populate pages:
 
 ```js
 {
@@ -60,6 +62,20 @@ https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
 }
 ```
 http://localhost:1337/api/pages?fields=*&populate[seo]=*&populate[sections][fields]=*&populate[sections][populate][rows]=*
+
+
+Populate Singeltypes Global components:
+
+```js
+{
+  populate: [
+    'navigation',
+    'navigation.items',
+    'footer',
+  ],
+}
+```
+http://localhost:1337/api/global?populate[0]=navigation&populate[1]=navigation.items&populate[2]=footer
 
 ---
 
