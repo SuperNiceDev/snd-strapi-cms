@@ -38,9 +38,11 @@ export interface GlobalNavigation extends Schema.Component {
   collectionName: "components_global_navigations";
   info: {
     displayName: "Navigation";
+    description: "";
   };
   attributes: {
-    navText: Attribute.String;
+    items: Attribute.Component<"shared.links", true>;
+    myText: Attribute.String;
   };
 }
 
