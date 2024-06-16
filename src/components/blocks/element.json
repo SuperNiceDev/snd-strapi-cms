@@ -1,13 +1,8 @@
 {
   "collectionName": "components_blocks_elements",
   "info": {
-    "displayName": "Element",
-    "description": ""
+    "displayName": "Element"
   },
   "options": {},
-  "attributes": {
-    "elementId": {
-      "type": "string"
-    }
-  }
+  "attributes": {}
 }

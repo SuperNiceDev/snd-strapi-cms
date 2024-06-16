@@ -4,11 +4,8 @@ export interface BlocksElement extends Schema.Component {
   collectionName: "components_blocks_elements";
   info: {
     displayName: "Element";
-    description: "";
   };
-  attributes: {
-    elementId: Attribute.String;
-  };
+  attributes: {};
 }
 
 export interface BlocksRow extends Schema.Component {
@@ -19,18 +16,18 @@ export interface BlocksRow extends Schema.Component {
   };
   attributes: {
     rowId: Attribute.String;
-    element: Attribute.Component<"blocks.element", true>;
   };
 }
 
 export interface GlobalFooter extends Schema.Component {
   collectionName: "components_global_footers";
   info: {
-    displayName: "footer";
+    displayName: "Footer";
     description: "";
   };
   attributes: {
-    footerText: Attribute.String;
+    myText: Attribute.String;
+    nav: Attribute.Component<"shared.links", true>;
   };
 }
 
@@ -64,7 +61,7 @@ export interface SharedImages extends Schema.Component {
 export interface SharedLinks extends Schema.Component {
   collectionName: "components_shared_links";
   info: {
-    displayName: "link";
+    displayName: "Link";
     icon: "backward";
     description: "";
   };
@@ -80,8 +77,9 @@ export interface SharedLinks extends Schema.Component {
 export interface SharedMetaSocial extends Schema.Component {
   collectionName: "components_shared_meta_socials";
   info: {
-    displayName: "metaSocial";
+    displayName: "MetaSocial";
     icon: "project-diagram";
+    description: "";
   };
   attributes: {
     socialNetwork: Attribute.Enumeration<["Facebook", "Twitter"]> &
@@ -114,8 +112,9 @@ export interface SharedRichText extends Schema.Component {
 export interface SharedSeo extends Schema.Component {
   collectionName: "components_shared_seos";
   info: {
-    displayName: "seo";
+    displayName: "Seo";
     icon: "search";
+    description: "";
   };
   attributes: {
     metaTitle: Attribute.String &

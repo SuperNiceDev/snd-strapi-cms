@@ -50,7 +50,7 @@
       },
       "type": "dynamiczone",
       "components": [
-        "blocks.row"
+        "shared.rich-text"
       ]
     }
   }

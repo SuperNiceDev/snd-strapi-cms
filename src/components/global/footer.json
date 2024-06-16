@@ -1,13 +1,18 @@
 {
   "collectionName": "components_global_footers",
   "info": {
-    "displayName": "footer",
+    "displayName": "Footer",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "footerText": {
+    "myText": {
       "type": "string"
+    },
+    "nav": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
     }
   }
 }
