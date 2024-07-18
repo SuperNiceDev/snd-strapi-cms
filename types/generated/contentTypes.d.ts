@@ -362,191 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: "categories";
-  info: {
-    singularName: "category";
-    pluralName: "categories";
-    displayName: "Category";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    uId: Attribute.UID;
-    title: Attribute.String;
-    products: Attribute.Relation<
-      "api::category.category",
-      "oneToMany",
-      "api::product.product"
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      "api::category.category",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      "api::category.category",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiGlobalGlobal extends Schema.SingleType {
-  collectionName: "globals";
-  info: {
-    singularName: "global";
-    pluralName: "globals";
-    displayName: "Global";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    navigation: Attribute.Component<"global.navigation"> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    footer: Attribute.Component<"global.footer"> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      "api::global.global",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      "api::global.global",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      "api::global.global",
-      "oneToMany",
-      "api::global.global"
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiPagePage extends Schema.CollectionType {
-  collectionName: "pages";
-  info: {
-    singularName: "page";
-    pluralName: "pages";
-    displayName: "Page";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    seo: Attribute.Component<"shared.seo"> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sections: Attribute.DynamicZone<["shared.rich-text"]> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<"api::page.page", "oneToOne", "admin::user"> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<"api::page.page", "oneToOne", "admin::user"> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      "api::page.page",
-      "oneToMany",
-      "api::page.page"
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: "products";
-  info: {
-    singularName: "product";
-    pluralName: "products";
-    displayName: "Product";
-    description: "";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    uId: Attribute.UID;
-    title: Attribute.String;
-    category: Attribute.Relation<
-      "api::product.product",
-      "manyToOne",
-      "api::category.category"
-    >;
-    images: Attribute.Component<"shared.images">;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      "api::product.product",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      "api::product.product",
-      "oneToOne",
-      "admin::user"
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: "files";
   info: {
@@ -1024,6 +839,191 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: "categories";
+  info: {
+    singularName: "category";
+    pluralName: "categories";
+    displayName: "Category";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    uId: Attribute.UID;
+    title: Attribute.String;
+    products: Attribute.Relation<
+      "api::category.category",
+      "oneToMany",
+      "api::product.product"
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::category.category",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::category.category",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGlobalGlobal extends Schema.SingleType {
+  collectionName: "globals";
+  info: {
+    singularName: "global";
+    pluralName: "globals";
+    displayName: "Global";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    navigation: Attribute.Component<"global.navigation"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footer: Attribute.Component<"global.footer"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::global.global",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::global.global",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      "api::global.global",
+      "oneToMany",
+      "api::global.global"
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: "pages";
+  info: {
+    singularName: "page";
+    pluralName: "pages";
+    displayName: "Page";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sections: Attribute.DynamicZone<["shared.rich-text"]> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<"api::page.page", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<"api::page.page", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      "api::page.page",
+      "oneToMany",
+      "api::page.page"
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: "products";
+  info: {
+    singularName: "product";
+    pluralName: "products";
+    displayName: "Product";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    uId: Attribute.UID;
+    title: Attribute.String;
+    category: Attribute.Relation<
+      "api::product.product",
+      "manyToOne",
+      "api::category.category"
+    >;
+    images: Attribute.Component<"shared.images">;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::product.product",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::product.product",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module "@strapi/types" {
   export module Shared {
     export interface ContentTypes {
@@ -1034,10 +1034,6 @@ declare module "@strapi/types" {
       "admin::api-token-permission": AdminApiTokenPermission;
       "admin::transfer-token": AdminTransferToken;
       "admin::transfer-token-permission": AdminTransferTokenPermission;
-      "api::category.category": ApiCategoryCategory;
-      "api::global.global": ApiGlobalGlobal;
-      "api::page.page": ApiPagePage;
-      "api::product.product": ApiProductProduct;
       "plugin::upload.file": PluginUploadFile;
       "plugin::upload.folder": PluginUploadFolder;
       "plugin::content-releases.release": PluginContentReleasesRelease;
@@ -1047,6 +1043,10 @@ declare module "@strapi/types" {
       "plugin::users-permissions.permission": PluginUsersPermissionsPermission;
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
+      "api::category.category": ApiCategoryCategory;
+      "api::global.global": ApiGlobalGlobal;
+      "api::page.page": ApiPagePage;
+      "api::product.product": ApiProductProduct;
     }
   }
 }
