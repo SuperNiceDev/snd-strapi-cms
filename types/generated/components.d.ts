@@ -1,5 +1,29 @@
 import type { Schema, Attribute } from "@strapi/strapi";
 
+export interface GlobalNavigation extends Schema.Component {
+  collectionName: "components_global_navigations";
+  info: {
+    displayName: "Navigation";
+    description: "";
+  };
+  attributes: {
+    items: Attribute.Component<"shared.links", true>;
+    myText: Attribute.String;
+  };
+}
+
+export interface GlobalFooter extends Schema.Component {
+  collectionName: "components_global_footers";
+  info: {
+    displayName: "Footer";
+    description: "";
+  };
+  attributes: {
+    myText: Attribute.String;
+    nav: Attribute.Component<"shared.links", true>;
+  };
+}
+
 export interface SharedSeo extends Schema.Component {
   collectionName: "components_shared_seos";
   info: {
@@ -96,30 +120,6 @@ export interface SharedImages extends Schema.Component {
   };
 }
 
-export interface GlobalNavigation extends Schema.Component {
-  collectionName: "components_global_navigations";
-  info: {
-    displayName: "Navigation";
-    description: "";
-  };
-  attributes: {
-    items: Attribute.Component<"shared.links", true>;
-    myText: Attribute.String;
-  };
-}
-
-export interface GlobalFooter extends Schema.Component {
-  collectionName: "components_global_footers";
-  info: {
-    displayName: "Footer";
-    description: "";
-  };
-  attributes: {
-    myText: Attribute.String;
-    nav: Attribute.Component<"shared.links", true>;
-  };
-}
-
 export interface BlocksRow extends Schema.Component {
   collectionName: "components_blocks_rows";
   info: {
@@ -142,13 +142,13 @@ export interface BlocksElement extends Schema.Component {
 declare module "@strapi/types" {
   export module Shared {
     export interface Components {
+      "global.navigation": GlobalNavigation;
+      "global.footer": GlobalFooter;
       "shared.seo": SharedSeo;
       "shared.rich-text": SharedRichText;
       "shared.meta-social": SharedMetaSocial;
       "shared.links": SharedLinks;
       "shared.images": SharedImages;
-      "global.navigation": GlobalNavigation;
-      "global.footer": GlobalFooter;
       "blocks.row": BlocksRow;
       "blocks.element": BlocksElement;
     }
