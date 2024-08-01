@@ -1,9 +1,9 @@
 import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
 
-module.exports = ({ env }) => {
+export default ({ env }) => {
   // console.log("plugins.js env: ", env);
-  
-  const obj = {
+
+  const plugins = {
     // https://market.strapi.io/plugins/strapi-plugin-redirects
     redirects: {
       enabled: true,
@@ -49,8 +49,8 @@ module.exports = ({ env }) => {
         quality: 90,
       } satisfies ImageOptimizerConfig,
     },
-  }
+  };
 
-  // console.log("plugins.js obj: ", obj);
-  return obj
+  // console.log("plugins.js plugins: ", plugins);
+  return plugins;
 };

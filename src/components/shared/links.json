@@ -1,14 +1,15 @@
 {
   "collectionName": "components_shared_links",
   "info": {
-    "displayName": "link",
-    "icon": "backward"
+    "displayName": "Link",
+    "icon": "backward",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "href": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "label": {
       "type": "string",
@@ -24,6 +25,11 @@
       "type": "boolean",
       "default": false,
       "required": false
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   }
 }

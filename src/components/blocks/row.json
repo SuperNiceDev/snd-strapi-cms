@@ -8,11 +8,6 @@
   "attributes": {
     "rowId": {
       "type": "string"
-    },
-    "element": {
-      "type": "component",
-      "repeatable": true,
-      "component": "blocks.element"
     }
   }
 }
