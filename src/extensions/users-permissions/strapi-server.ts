@@ -29,7 +29,6 @@ export default (plugin) => {
 
     const updatedUserData = {
       ...ctx.request.body,
-      username: "Philipp Neumann",
       // username: ctx.state.user.username || ctx.request.body.username,
       // email: ctx.state.user.email || ctx.request.body.email,
       // firstname: ctx.state.user.firstname || ctx.request.body.firstname,
