@@ -23,10 +23,10 @@
     "prettier": "^3.2.5"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "4.25.5",
-    "@strapi/plugin-i18n": "4.25.5",
-    "@strapi/plugin-users-permissions": "4.25.5",
-    "@strapi/strapi": "4.25.5",
+    "@strapi/plugin-cloud": "4.25.6",
+    "@strapi/plugin-i18n": "4.25.6",
+    "@strapi/plugin-users-permissions": "4.25.6",
+    "@strapi/strapi": "4.25.6",
     "better-sqlite3": "^11.1.2",
     "mysql": "^2.18.1",
     "react": "^18.0.0",
