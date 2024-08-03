@@ -7,9 +7,8 @@ export default {
     // async beforeOne(event) {
     console.log("---------------------");
     console.log(
-      "src/extensions/users-permissions/content-types/user/lifecycles.js lifecycles() beforeFindMany()",
+      "src/extensions/users-permissions/content-types/user/lifecycles.js beforeFindMany()",
     );
-    // console.log('src/extensions/users-permissions/content-types/user/lifecycles.js lifecycles() beforeFindMany()');
     console.log("event: ", event);
     const ctx = strapi.requestContext.get();
     console.log("ctx: ", ctx);

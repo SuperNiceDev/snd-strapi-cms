@@ -154,7 +154,7 @@ http://localhost:1337/api/auth/google/callback  (for Strapi)
 http://localhost:3000/api/auth/callback/google  (for NextAuth)
 
 
-### Test
+### Login
 http://localhost:1337/api/connect/google
 
 
@@ -202,7 +202,7 @@ http://localhost:1337/api/auth/zaikio/callback  (for Strapi)
 http://localhost:3000/api/auth/callback/zaikio  (for NextAuth)
 
 
-### Test
+### Login
 http://localhost:1337/api/connect/zaikio/
 
 
