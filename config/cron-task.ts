@@ -2,26 +2,32 @@ export default {
   deleteInactiveUser: {
     task: async ({ strapi }) => {
       const currTime = new Date().getTime();
+      const yearInMilliSeconds = 1000 * 60 * 60 * 24 * 365;
+      // console.log(":::::::::::::::::::::::::::");
+
       const users = await strapi.entityService.findMany(
         "plugin::users-permissions.user",
       );
-
       users?.forEach(async (item) => {
-        const delta = currTime - parseInt(item.lastLogin) || 0;
-        const deltaReadable = new Date(delta).toISOString().slice(11, 19);
-        console.log("----------------");
-        console.log("cron-task deltaReadable: ", deltaReadable);
-        const yearInMilliSeconds = 1000 * 60 * 60 * 24 * 365;
-        if (delta > yearInMilliSeconds) {
-          await strapi.entityService.delete(
-            "plugin::users-permissions.user",
-            item.id,
-          );
-          // await strapi.entityService.delete(
-          //   "plugin::users-permissions.user",
-          //   item.id,
-          // );
-        }
+        const lastLogin = parseInt(item.lastLogin) || currTime;
+        const delta = currTime - lastLogin;
+        // console.log("cron-task deleteInactiveUser() item.email:         ", item.email);
+        // console.log("cron-task deleteInactiveUser() yearInMilliSeconds: ", yearInMilliSeconds);
+        // console.log("cron-task deleteInactiveUser() delta:              ", delta);
+        // console.log("----------------");
+        // const deltaReadable = new Date(delta).toISOString().slice(11, 19);
+        // console.log("cron-task deleteInactiveUser() deltaReadable: ", deltaReadable);
+
+        const isOneYearOver = delta > yearInMilliSeconds;
+        // const isOneYearOver = true;
+  
+        // if (isOneYearOver) {
+        //   await strapi.entityService.delete(
+        //     "plugin::users-permissions.user",
+        //     item.id,
+        //   );
+        // }
+
         return;
       });
     },
