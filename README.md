@@ -203,7 +203,7 @@ http://localhost:3000/api/auth/callback/zaikio  (for NextAuth)
 
 
 ### Login
-http://localhost:1337/api/connect/zaikio/
+http://localhost:1337/api/connect/zaikio
 
 
 ### patch-package:
