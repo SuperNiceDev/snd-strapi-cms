@@ -283,7 +283,7 @@ yarn patch-package grant purest @strapi/plugin-users-permissions
 ```
 
 ### Test
-http://localhost:1337/api/connect/zaikio/
+http://localhost:1337/api/connect/zaikio
 
 ---
 
