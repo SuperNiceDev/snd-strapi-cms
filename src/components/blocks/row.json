@@ -8,6 +8,16 @@
   "attributes": {
     "rowId": {
       "type": "string"
+    },
+    "richText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rich-text"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
     }
   }
 }

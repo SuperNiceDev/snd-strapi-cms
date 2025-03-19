@@ -35,9 +35,11 @@ export interface SharedRichText extends Schema.Component {
   info: {
     displayName: "RichText";
     icon: "pencil";
+    description: "";
   };
   attributes: {
-    text: Attribute.Blocks;
+    text: Attribute.Text;
+    size: Attribute.Enumeration<["xs", "s", "m", "l", "xl", "xxl"]>;
   };
 }
 
@@ -96,6 +98,28 @@ export interface SharedImages extends Schema.Component {
   };
 }
 
+export interface BlocksRow extends Schema.Component {
+  collectionName: "components_blocks_rows";
+  info: {
+    displayName: "Row";
+    description: "";
+  };
+  attributes: {
+    rowId: Attribute.String;
+    richText: Attribute.Component<"shared.rich-text", true>;
+    link: Attribute.Component<"shared.links", true>;
+  };
+}
+
+export interface BlocksElement extends Schema.Component {
+  collectionName: "components_blocks_elements";
+  info: {
+    displayName: "Element";
+    description: "";
+  };
+  attributes: {};
+}
+
 export interface GlobalNavigation extends Schema.Component {
   collectionName: "components_global_navigations";
   info: {
@@ -120,25 +144,6 @@ export interface GlobalFooter extends Schema.Component {
   };
 }
 
-export interface BlocksRow extends Schema.Component {
-  collectionName: "components_blocks_rows";
-  info: {
-    displayName: "Row";
-    description: "";
-  };
-  attributes: {
-    rowId: Attribute.String;
-  };
-}
-
-export interface BlocksElement extends Schema.Component {
-  collectionName: "components_blocks_elements";
-  info: {
-    displayName: "Element";
-  };
-  attributes: {};
-}
-
 declare module "@strapi/types" {
   export module Shared {
     export interface Components {
@@ -147,10 +152,10 @@ declare module "@strapi/types" {
       "shared.meta-social": SharedMetaSocial;
       "shared.links": SharedLinks;
       "shared.images": SharedImages;
-      "global.navigation": GlobalNavigation;
-      "global.footer": GlobalFooter;
       "blocks.row": BlocksRow;
       "blocks.element": BlocksElement;
+      "global.navigation": GlobalNavigation;
+      "global.footer": GlobalFooter;
     }
   }
 }

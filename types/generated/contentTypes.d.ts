@@ -964,7 +964,7 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    sections: Attribute.DynamicZone<["shared.rich-text"]> &
+    sections: Attribute.DynamicZone<["blocks.row"]> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

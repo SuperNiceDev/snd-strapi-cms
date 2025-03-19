@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_elements",
   "info": {
-    "displayName": "Element"
+    "displayName": "Element",
+    "description": ""
   },
   "options": {},
   "attributes": {}
