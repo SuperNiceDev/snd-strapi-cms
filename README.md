@@ -2,23 +2,22 @@
 
 ## SETUP
 
-```
+```sh
 yarn
-```
-
-```
 yarn patch-package
-```
-
-```
 yarn dev
 ```
 
+Login
+```
+http://localhost:1337/admin
 p.neumann@supernice-dev.com
 123456Aa
+```
 
+---
 
-## REST API 
+## REST API
 
 is-owner policy:
 https://docs.strapi.io/dev-docs/backend-customization/middlewares#restricting-content-access-with-an-is-owner-policy
@@ -27,7 +26,7 @@ Filtering:
 https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/filtering-locale-publication.html#filtering
 
 
-## Website REST API config 
+#### Website REST API config
 
 https://strapi.io/blog/how-to-create-pages-on-the-fly-with-dynamic-zone
 
@@ -35,7 +34,7 @@ Foodadvisor content-types examples:
 https://github.com/strapi/foodadvisor/blob/master/api/src/api/page/content-types/page/schema.json
 
 
-### Populate REST API
+#### Populate REST API
 https://docs.strapi.io/dev-docs/api/rest/populate-select#population
 
 http://localhost:1337/api/products/1?populate=*
@@ -128,7 +127,7 @@ console.log("/api/users/me data: ", res2.data);
 https://strapi.io/blog/user-authentication-in-next-js-with-strapi
 
 
-### Google Cloud Console Config
+#### Google Cloud Console Config
 
 https://console.cloud.google.com/apis/credentials?project=strapi-auth-demo-417609
 
@@ -139,7 +138,7 @@ http://localhost:1337/api/connect/google/callback  (for Strapi)
 http://localhost:3000/api/auth/callback/google     (for NextAuth)
 
 
-### Strapi Users and Permissions Plugin Provider Google Config
+#### Strapi Users and Permissions Plugin Provider Google Config
 
 http://localhost:1337/admin/settings/users-permissions/providers
 
@@ -154,7 +153,7 @@ http://localhost:1337/api/auth/google/callback  (for Strapi)
 http://localhost:3000/api/auth/callback/google  (for NextAuth)
 
 
-### Login
+#### Login
 http://localhost:1337/api/connect/google
 
 
@@ -164,12 +163,12 @@ http://localhost:1337/api/connect/google
 ## Zaikio OAuth
 
 
-### Heidelberg Plus User Account
+#### Heidelberg Plus User Account
 
 https://home.plus.heidelberg.com/#/profile/overview
 
 
-### Zaikio Docs
+#### Zaikio Docs
 
 https://docs.zaikio.com/api/directory/oauth.html
 
@@ -178,7 +177,7 @@ https://docs.zaikio.com/guide/oauth/redirect-flow.html
 https://docs.zaikio.com/integration/private-apps.html
 
 
-### Zaikio Hub Config
+#### Zaikio Hub Config
 
 https://hub.sandbox.zaikio.com/organizations/fp-interactive/apps/excite/oauth_credentials
 
@@ -187,7 +186,7 @@ http://localhost:1337/api/connect/zaikio/callback  (for Strapi)
 http://localhost:3000/api/auth/callback/zaikio     (for NextAuth)
 
 
-### Strapi Users and Permissions Plugin Provider Zaikio Config
+#### Strapi Users and Permissions Plugin Provider Zaikio Config
 
 https://strapi.io/blog/how-to-add-a-custom-o-auth2-open-id-connect-provider-to-strapi-v4
 
@@ -202,25 +201,24 @@ http://localhost:1337/api/auth/zaikio/callback  (for Strapi)
 http://localhost:3000/api/auth/callback/zaikio  (for NextAuth)
 
 
-### Login
+#### Login
 http://localhost:1337/api/connect/zaikio
 
+---
 
-### patch-package:
+## patch node modules:
 
 When ```patches``` folder already excisits:
-```
+```sh
 yarn patch-package
 ```
 
 
-### patch node modules
-
 When ```patches``` folder NOT already excisits,
 make these changes:
 
-node_modules/grant/config/oauth.json
-```
+```js
+// node_modules/grant/config/oauth.json
 "zaikio": {
   "authorize_url": "https://hub.sandbox.zaikio.com/oauth/authorize",
   "access_url": "https://hub.sandbox.zaikio.com/oauth/access_token",
@@ -228,15 +226,15 @@ node_modules/grant/config/oauth.json
 }
 ```
 
-node_modules/grant/config/profile.json
-```
+```js
+// node_modules/grant/config/profile.json
 "zaikio": {
   "profile_url": "https://hub.sandbox.zaikio.com/oauth/userinfo"
 }
 ```
 
-node_modules/purest/config/providers.json
-```
+```js
+// node_modules/purest/config/providers.json
 "zaikio": {
   "default": {
     "origin": "https://hub.sandbox.zaikio.com",
@@ -252,8 +250,8 @@ node_modules/purest/config/providers.json
 }
 ```
 
-node_modules/@strapi/plugin-users-permissions/server/bootstrap/grant-config.js
-```
+```js
+// node_modules/@strapi/plugin-users-permissions/server/bootstrap/grant-config.js
 zaikio: {
   enabled: true,
   icon: 'zaikio',
@@ -264,8 +262,8 @@ zaikio: {
 }
 ```
 
-node_modules/@strapi/plugin-users-permissions/server/services/providers-registry.js
-```
+```js
+// node_modules/@strapi/plugin-users-permissions/server/services/providers-registry.js
 async zaikio({ accessToken }) {
   const zaikio = purest({ provider: 'zaikio' });
   const { body } = await zaikio.get('oauth/userinfo').auth(accessToken).request();
@@ -278,7 +276,7 @@ async zaikio({ accessToken }) {
 ```
 
 patch changed node modules
-```
+```sh
 yarn patch-package grant purest @strapi/plugin-users-permissions
 ```
 
