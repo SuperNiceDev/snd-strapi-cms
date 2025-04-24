@@ -42,6 +42,7 @@ http://localhost:1337/api/products/1?populate[0]=images&populate[1]=images.front
 http://localhost:1337/api/categories?populate[products][populate][0]=image
 
 Interactive query builder:
+https://docs-v4.strapi.io/dev-docs/api/rest/interactive-query-builder
 https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder
 
 Populate pages:
