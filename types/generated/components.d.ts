@@ -128,7 +128,7 @@ export interface SharedSeo extends Schema.Component {
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 160;
-        minLength: 50;
+        minLength: 5;
       }>;
     metaImage: Attribute.Media<"images" | "files" | "videos"> &
       Attribute.Required;
