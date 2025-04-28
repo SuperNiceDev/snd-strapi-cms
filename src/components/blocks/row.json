@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_rows",
+  "info": {
+    "displayName": "Row",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "rowId": {
+      "type": "string"
+    },
+    "richText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rich-text"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
+    }
+  }
+}

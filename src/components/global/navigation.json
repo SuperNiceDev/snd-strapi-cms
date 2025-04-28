@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_navigations",
+  "info": {
+    "displayName": "Navigation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
+    },
+    "myText": {
+      "type": "string"
+    }
+  }
+}
