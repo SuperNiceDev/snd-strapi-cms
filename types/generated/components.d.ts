@@ -1,161 +1,75 @@
-import type { Attribute, Schema } from "@strapi/strapi";
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface BlocksElement extends Schema.Component {
-  collectionName: "components_blocks_elements";
+export interface SharedMedia extends Struct.ComponentSchema {
+  collectionName: 'components_shared_media';
   info: {
-    description: "";
-    displayName: "Element";
-  };
-  attributes: {};
-}
-
-export interface BlocksRow extends Schema.Component {
-  collectionName: "components_blocks_rows";
-  info: {
-    description: "";
-    displayName: "Row";
+    displayName: 'Media';
+    icon: 'file-video';
   };
   attributes: {
-    link: Attribute.Component<"shared.links", true>;
-    richText: Attribute.Component<"shared.rich-text", true>;
-    rowId: Attribute.String;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
   };
 }
 
-export interface GlobalFooter extends Schema.Component {
-  collectionName: "components_global_footers";
+export interface SharedQuote extends Struct.ComponentSchema {
+  collectionName: 'components_shared_quotes';
   info: {
-    description: "";
-    displayName: "Footer";
+    displayName: 'Quote';
+    icon: 'indent';
   };
   attributes: {
-    myText: Attribute.String;
-    nav: Attribute.Component<"shared.links", true>;
+    body: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface GlobalNavigation extends Schema.Component {
-  collectionName: "components_global_navigations";
+export interface SharedRichText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rich_texts';
   info: {
-    description: "";
-    displayName: "Navigation";
+    description: '';
+    displayName: 'Rich text';
+    icon: 'align-justify';
   };
   attributes: {
-    items: Attribute.Component<"shared.links", true>;
-    myText: Attribute.String;
+    body: Schema.Attribute.RichText;
   };
 }
 
-export interface SharedImages extends Schema.Component {
-  collectionName: "components_shared_images";
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
   info: {
-    description: "";
-    displayName: "Images";
-    icon: "dashboard";
+    description: '';
+    displayName: 'Seo';
+    icon: 'allergies';
+    name: 'Seo';
   };
   attributes: {
-    back: Attribute.Media<"images">;
-    front: Attribute.Media<"images">;
-    printView: Attribute.Media<"images">;
-    thumbnail: Attribute.Media<"images">;
+    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    shareImage: Schema.Attribute.Media<'images'>;
   };
 }
 
-export interface SharedLinks extends Schema.Component {
-  collectionName: "components_shared_links";
+export interface SharedSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sliders';
   info: {
-    description: "";
-    displayName: "Link";
-    icon: "backward";
+    description: '';
+    displayName: 'Slider';
+    icon: 'address-book';
   };
   attributes: {
-    href: Attribute.String;
-    isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
-    label: Attribute.String & Attribute.Required;
-    page: Attribute.Relation<"shared.links", "oneToOne", "api::page.page">;
-    target: Attribute.Enumeration<["_blank"]>;
+    files: Schema.Attribute.Media<'images', true>;
   };
 }
 
-export interface SharedMetaSocial extends Schema.Component {
-  collectionName: "components_shared_meta_socials";
-  info: {
-    description: "";
-    displayName: "MetaSocial";
-    icon: "project-diagram";
-  };
-  attributes: {
-    description: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 65;
-      }>;
-    image: Attribute.Media<"images" | "files" | "videos">;
-    socialNetwork: Attribute.Enumeration<["Facebook", "Twitter"]> &
-      Attribute.Required;
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 60;
-      }>;
-  };
-}
-
-export interface SharedRichText extends Schema.Component {
-  collectionName: "components_shared_rich_texts";
-  info: {
-    description: "";
-    displayName: "RichText";
-    icon: "pencil";
-  };
-  attributes: {
-    size: Attribute.Enumeration<["xs", "s", "m", "l", "xl", "xxl"]>;
-    text: Attribute.Text;
-  };
-}
-
-export interface SharedSeo extends Schema.Component {
-  collectionName: "components_shared_seos";
-  info: {
-    description: "";
-    displayName: "Seo";
-    icon: "search";
-  };
-  attributes: {
-    canonicalURL: Attribute.String;
-    keywords: Attribute.Text;
-    metaDescription: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 160;
-        minLength: 5;
-      }>;
-    metaImage: Attribute.Media<"images" | "files" | "videos"> &
-      Attribute.Required;
-    metaRobots: Attribute.String;
-    metaSocial: Attribute.Component<"shared.meta-social", true>;
-    metaTitle: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 60;
-      }>;
-    metaViewport: Attribute.String;
-    structuredData: Attribute.JSON;
-  };
-}
-
-declare module "@strapi/types" {
-  export module Shared {
-    export interface Components {
-      "blocks.element": BlocksElement;
-      "blocks.row": BlocksRow;
-      "global.footer": GlobalFooter;
-      "global.navigation": GlobalNavigation;
-      "shared.images": SharedImages;
-      "shared.links": SharedLinks;
-      "shared.meta-social": SharedMetaSocial;
-      "shared.rich-text": SharedRichText;
-      "shared.seo": SharedSeo;
+declare module '@strapi/strapi' {
+  export module Public {
+    export interface ComponentSchemas {
+      'shared.media': SharedMedia;
+      'shared.quote': SharedQuote;
+      'shared.rich-text': SharedRichText;
+      'shared.seo': SharedSeo;
+      'shared.slider': SharedSlider;
     }
   }
 }

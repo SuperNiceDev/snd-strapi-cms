@@ -1,25 +1,14 @@
 {
   "collectionName": "components_shared_rich_texts",
   "info": {
-    "displayName": "RichText",
-    "icon": "pencil",
+    "displayName": "Rich text",
+    "icon": "align-justify",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "text": {
-      "type": "text"
-    },
-    "size": {
-      "type": "enumeration",
-      "enum": [
-        "xs",
-        "s",
-        "m",
-        "l",
-        "xl",
-        "xxl"
-      ]
+    "body": {
+      "type": "richtext"
     }
   }
 }
