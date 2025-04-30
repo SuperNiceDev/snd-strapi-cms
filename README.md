@@ -160,6 +160,33 @@ http://localhost:1337/api/connect/google
 
 ---
 
+## LinkedIn OAuth
+
+#### LinkedIn Cloud Console Config
+
+https://www.linkedin.com/developers/apps/219502882/auth
+
+OAuth 2.0 settings:
+Authorized redirect URLs for your app
+http://localhost:3000/api/auth/callback/linkedin
+http://localhost:1337/api/connect/linkedin/callback
+
+#### Strapi Users and Permissions Plugin Provider LinkedIn Config
+
+http://localhost:1337/admin/settings/users-permissions/providers
+
+Client ID:
+77hiq25rauvmxz
+
+Client Secret:
+T2LdpAGo3IKVwHOv
+
+The redirect URL to your front-end app:
+http://localhost:1337/api/auth/linkedin/callback  (for Strapi)
+http://localhost:3000/api/auth/callback/linkedin  (for NextAuth)
+
+---
+
 
 ## Zaikio OAuth
 
