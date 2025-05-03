@@ -1,3 +1,17 @@
+# snd-strapi-cms
+
+Welcome to [SuperNice Dev](https://www.supernice-dev.com/en) Strapi cms project.
+
+This is a boilerplate for examples and best practices.
+
+
+## Main Technologies
+
+- [Node.js 20](https://nodejs.org/docs/latest-v20.x/api/index.html)
+- [React 19](https://react.dev/)
+- [Strapi 5](https://docs.strapi.io/cms/intro)
+
+
 ## Setup
 
 - install Node.js:
@@ -25,7 +39,7 @@ yarn
   - Global -> find 
   - Page -> find & findOne
 
-- set providers:
+- set auth providers:
   http://localhost:1337/admin/settings/users-permissions/providers
   - google
   - linkedin
