@@ -12,15 +12,18 @@ https://classic.yarnpkg.com/en/docs/install#mac-stable
 yarn
 ```
 
-- duplicate and rename .env.example file to .env and update if needed
+- duplicate [.env.example](./.env.example) file, rename to .env and add credentials.
 
-- register admin account
+- register admin account:
+  http://localhost:1337/admin/
 
 - set roles:
+  http://localhost:1337/admin/settings/users-permissions/roles/1
+  - Users-permissions -> updateMe
+
   http://localhost:1337/admin/settings/users-permissions/roles/2
   - Global -> find 
-  - Page -> find
-         -> findOne
+  - Page -> find & findOne
 
 - set providers:
   http://localhost:1337/admin/settings/users-permissions/providers
