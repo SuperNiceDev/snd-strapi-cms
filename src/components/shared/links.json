@@ -7,13 +7,18 @@
   },
   "options": {},
   "attributes": {
-    "href": {
-      "type": "string",
-      "required": false
-    },
     "label": {
       "type": "string",
       "required": true
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
+    "href": {
+      "type": "string",
+      "required": false
     },
     "target": {
       "type": "enumeration",
@@ -25,11 +30,6 @@
       "type": "boolean",
       "default": false,
       "required": false
-    },
-    "page": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page"
     }
   }
 }
