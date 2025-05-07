@@ -12,6 +12,12 @@ This is a boilerplate for examples and best practices.
 - [Strapi 5](https://docs.strapi.io/cms/intro)
 
 
+## Custom changes
+- add crone job to delte inactive user:
+  [config/servers.ts](config/servers.ts)
+  [config/cronTasks.ts](config/cronTasks.ts)
+
+
 ## Setup
 
 - install Node.js:
