@@ -41,14 +41,14 @@ yarn
 
 - set auth providers:
   http://localhost:1337/admin/settings/users-permissions/providers
-  - google
-  - linkedin
-
-- add pages:
-  - http://localhost:1337/admin/content-manager/collection-types/api::page.page
+  - google:  front-end app redirect URL: http://localhost:3000/api/auth/callback/google
+  - linkedin front-end app redirect URL: http://localhost:3000/api/auth/callback/linkedin
 
 - add navigation:
   - http://localhost:1337/admin/content-manager/single-types/api::global.global
+
+- add pages:
+  - http://localhost:1337/admin/content-manager/collection-types/api::page.page
 
 Run dev
 ```sh
