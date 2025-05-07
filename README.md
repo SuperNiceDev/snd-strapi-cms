@@ -13,6 +13,9 @@ This is a boilerplate for examples and best practices.
 
 
 ## Custom changes
+- add custom API PUT method to users permissions plugin to add `lastLogin` and `authProvider` fields to user data:
+  [src/extensions/users-permissions/strapi-server.ts](src/extensions/users-permissions/strapi-server.ts)
+
 - add crone job to delte inactive user:
   [config/servers.ts](config/servers.ts)
   [config/cronTasks.ts](config/cronTasks.ts)
