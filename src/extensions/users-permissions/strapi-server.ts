@@ -14,10 +14,6 @@ export default (plugin) => {
     };
 
     try {
-      // await strapi
-      //   .plugin('users-permissions')
-      //   .service('user')
-      //   .update({ ... });
       await strapi.query("plugin::users-permissions.user").update({
         where: { id: ctxStateUser.id },
         data: dataTmp,
@@ -44,9 +40,6 @@ export default (plugin) => {
       config: {
         prefix: '',
         policies: [],
-        // auth: {
-        //   scope: ['plugin::users-permissions.user.updateMe'],
-        // },
       },
     });
 
