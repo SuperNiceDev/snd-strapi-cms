@@ -13,29 +13,34 @@ This is a boilerplate for examples and best practices.
 
 
 ## Custom changes
-- added custom API PUT method to users permissions plugin to add `lastLogin` and `authProvider` fields to user data:
+- REST API PUT method in users permissions plugin to add `lastLogin` and `authProvider` values to user data:
   [src/extensions/users-permissions/strapi-server.ts](src/extensions/users-permissions/strapi-server.ts)
 
-- addeds crone job to delte inactive user:
+- crone job to delte inactive users:
   [config/servers.ts](config/server.ts)
   [config/cronTasks.ts](config/cronTasks.ts)
 
 
 ## Setup
 
-- install Node.js:
-https://nodejs.org/en/download
-
 - install yarn:
 https://yarnpkg.com/getting-started/install
 https://classic.yarnpkg.com/en/docs/install#mac-stable
+
+- install Node.js:
+https://nodejs.org/en/download
 
 - install node modules:
 ```sh
 yarn
 ```
 
-- duplicate [.env.example](./.env.example) file, rename to .env and add credentials.
+- duplicate [.env.example](./.env.example) file, rename to .env and set variables.
+
+- run dev mode
+```sh
+yarn dev
+```
 
 - register admin account:
   http://localhost:1337/admin/
@@ -59,7 +64,3 @@ yarn
 - add pages:
   - http://localhost:1337/admin/content-manager/collection-types/api::page.page
 
-Run dev
-```sh
-yarn dev
-```
