@@ -7,17 +7,17 @@ This is a boilerplate for examples and best practices.
 
 ## Main Technologies
 
-- [Node.js 20](https://nodejs.org/docs/latest-v20.x/api/index.html)
+- [Node.js 22](https://nodejs.org/docs/latest-v22.x/api/index.html)
 - [React 19](https://react.dev/)
 - [Strapi 5](https://docs.strapi.io/cms/intro)
 
 
 ## Custom changes
-- add custom API PUT method to users permissions plugin to add `lastLogin` and `authProvider` fields to user data:
+- added custom API PUT method to users permissions plugin to add `lastLogin` and `authProvider` fields to user data:
   [src/extensions/users-permissions/strapi-server.ts](src/extensions/users-permissions/strapi-server.ts)
 
-- add crone job to delte inactive user:
-  [config/servers.ts](config/servers.ts)
+- addeds crone job to delte inactive user:
+  [config/servers.ts](config/server.ts)
   [config/cronTasks.ts](config/cronTasks.ts)
 
 
