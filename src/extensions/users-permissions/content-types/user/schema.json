@@ -11,6 +11,7 @@
   "options": {
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
     "username": {
       "type": "string",
@@ -67,6 +68,9 @@
     },
     "lastLogin": {
       "type": "biginteger"
+    },
+    "authProvider": {
+      "type": "string"
     }
   }
 }

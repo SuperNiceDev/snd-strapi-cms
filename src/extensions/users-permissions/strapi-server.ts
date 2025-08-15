@@ -1,36 +1,57 @@
 export default (plugin) => {
   plugin.controllers.user.updateMe = async (ctx) => {
-    if (!ctx.state.user || !ctx.state.user.id) {
-      return (ctx.response.status = 401);
+    const ctxStateUser = ctx.state.user;
+    if (!ctxStateUser?.id) {
+      return ctx.unauthorized();
     }
 
-    const updatedUserData = {
-      ...ctx.request.body,
-      lastLogin: ctx.request.body.lastLogin,
-      authProvider: ctx.state.user.provider,
+    const ctxReqBody = ctx.request.body
+    const dataTmp = {
+      ...ctxReqBody,
+      lastLogin: ctxReqBody.lastLogin,
+      authProvider: ctxStateUser.provider,
+      provider: ctxStateUser.provider,
     };
-    
+
     try {
+      // await strapi
+      //   .plugin('users-permissions')
+      //   .service('user')
+      //   .update({ ... });
       await strapi.query("plugin::users-permissions.user").update({
-        where: { id: ctx.state.user.id },
-        data: updatedUserData,
+        where: { id: ctxStateUser.id },
+        data: dataTmp,
       });
-      ctx.response.status = 200;
+      ctx.status = 200;
+      ctx.body = { success: true };
     } catch (error) {
-      console.error("Error updating user data: ", error);
-      ctx.response.status = 500;
+      console.error('Error updating user:', error);
+      strapi.log.error('Error updating user:', error);
+      ctx.internalServerError('Internal server error');
     }
   };
 
-  plugin.routes["content-api"].routes.unshift({
-    method: "PUT",
-    path: "/users/me",
-    handler: "user.updateMe",
-    config: {
-      prefix: "",
-      policies: [],
-    },
-  });
+  const contentApiFunc = plugin.routes['content-api'];
+
+  plugin.routes['content-api'] = () => {
+    const contentApi = contentApiFunc();
+    const routesExt = contentApi.routes || [];
+
+    routesExt.unshift({
+      method: 'PUT',
+      path: '/users/me',
+      handler: "user.updateMe",
+      config: {
+        prefix: '',
+        policies: [],
+        // auth: {
+        //   scope: ['plugin::users-permissions.user.updateMe'],
+        // },
+      },
+    });
+
+    return { ...contentApi, routes: routesExt };
+  };
 
   return plugin;
 };
