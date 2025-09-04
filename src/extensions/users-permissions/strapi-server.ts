@@ -5,10 +5,9 @@ export default (plugin) => {
       return ctx.unauthorized();
     }
 
-    const ctxReqBody = ctx.request.body
+    const ctxReqBody = ctx.request.body    
     const dataTmp = {
       ...ctxReqBody,
-      lastLogin: ctxReqBody.lastLogin,
       authProvider: ctxStateUser.provider,
       provider: ctxStateUser.provider,
     };
